@@ -13,13 +13,8 @@ class MyApp < Sinatra::Base
   end
 
   # The colon + something is like a placeholder
-  get "/:username" do
-    params[:username]
-    # User.find_by_username(params[:username])
-  end
-
-  get "/posts/:post_name" do
-    params[:post_name]
+  get "/posts/:postname" do
+    erb "posts/#{params[:postname]}".to_sym
   end
 
 end
