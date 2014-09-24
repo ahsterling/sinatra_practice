@@ -1,7 +1,11 @@
-<h1><font color = "purple" face = "georgia" >Welcome to my blog!</font></h1>
+<h1><font color = "purple" face = "courier" >Welcome to my blog!</font></h1>
 
 <!-- THIS IS AN HTML COMMENT -->
 <!--  make one of these with command + forward slash -->
 <!--  control - shift - period makes a ruby tag -->
-<h3><a href="/posts/my_first_post"><font face = "georgia">My First Post</font></a></h3>
-<h3><a href="/posts/my_second_post"><font face = "georgia">My Second Post</font></a></h3>
+
+<%= n = PostReader.all_posts.each {|post| puts post} %>
+
+
+<h3><a href="/posts/<%= PostReader.all_posts[0] %>"><font face = "courier">My First Post</font></a></h3>
+<h3><a href="/posts/<%= PostReader.all_posts[1] %>"><font face = "courier">My Second Post</font></a></h3>

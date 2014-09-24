@@ -1,4 +1,5 @@
 require 'sinatra'
+require './lib/post_reader'
 
 class MyApp < Sinatra::Base
 
