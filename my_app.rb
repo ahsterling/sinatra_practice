@@ -9,7 +9,17 @@ class MyApp < Sinatra::Base
   end
 
   get "/about-me" do
-    "I'm Allie"
+    erb :about_me
+  end
+
+  # The colon + something is like a placeholder
+  get "/:username" do
+    params[:username]
+    # User.find_by_username(params[:username])
+  end
+
+  get "/posts/:post_name" do
+    params[:post_name]
   end
 
 end
