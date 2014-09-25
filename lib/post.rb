@@ -8,21 +8,15 @@ class Post
   # Post.all
 
   def initialize(array)
-    
+    @title = array[-1].split(".")[0]
+    @url = "/posts/#{@title}"
   end
 
   def self.all
     Dir.glob("views/posts/*").collect do |filepath|
       a = filepath.split("/")
       new(a)
-      #File.basename(item, ".erb")
     end
   end
-
-
-  #
-  # def self.read_file(file_name)
-  #   File.open(file_name)
-  # end
 
 end

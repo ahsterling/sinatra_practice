@@ -4,8 +4,6 @@
 <!--  make one of these with command + forward slash -->
 <!--  control - shift - period makes a ruby tag -->
 
-<%= n = Post.all.each {|post| puts post} %>
 
-
-<h3><a href="/posts/<%= Post.all[0] %>"><font face = "courier">My First Post</font></a></h3>
-<h3><a href="/posts/<%= Post.all[1] %>"><font face = "courier">My Second Post</font></a></h3>
+<h3><a href="<%= Post.all[0].url %>"><font face = "courier"><%= Post.all[0].title.gsub("_", " ").capitalize %></font></a></h3>
+<h3><a href="<%= Post.all[1].url %>"><font face = "courier"><%= Post.all[1].title.gsub("_", " ").capitalize %></font></a></h3>
