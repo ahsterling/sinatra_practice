@@ -11,6 +11,8 @@
 
   <% @posts.each do |post| %>
     <p><a href="<%= post.url %>"><%= post.get_title %></a>:&nbsp <%= post.format_date %></p>
+    <li><%= post.format_date %></li>
+
   <% end %>
 
 </body>

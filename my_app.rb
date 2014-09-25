@@ -4,7 +4,6 @@ require './lib/post'
 
 class MyApp < Sinatra::Base
 
-
   get "/" do
     @posts = Post.most_recent(5)
     erb :index
