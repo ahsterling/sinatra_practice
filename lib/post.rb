@@ -30,9 +30,17 @@ class Post
     @date_created.strftime("%F")
   end
 
+  def self.find(url)
+    all.find{|post| post.url == url}
+  end
+
 
   def self.most_recent(n)
     all.sort_by { |post| post.date_created }.reverse.pop(n)
+  end
+
+  def content
+    File.read("./views/#{@url}.erb")
   end
 
 end

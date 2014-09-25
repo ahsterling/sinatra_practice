@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html>
 
-  <head>
 
-    <title>It's a blog!</title>
-  </head>
 
-<body>
-  <h1>It's a blog!</h1>
+<h1>It's a blog!</h1>
 
-  <% @posts.each do |post| %>
-    <p><a href="<%= post.url %>"><%= post.get_title %></a>:&nbsp <%= post.format_date %></p>
-    <li><%= post.format_date %></li>
+<% @posts.each do |post| %>
+  <h3><a href="<%= post.url %>"><%= post.get_title %></a>:&nbsp <%= post.format_date %></h3>
+  <p> <%= post.content %> </p>
+<% end %>
 
-  <% end %>
 
-</body>
-</html>
 
 <!-- THIS IS AN HTML COMMENT -->
 <!--  make one of these with command + forward slash -->

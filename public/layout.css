@@ -1,8 +1,35 @@
 h1 {
-  color: purple;
-  font-family: courier
+  color: #CC6F89;
+  font-family: courier;
+
+  /*border-style: dashed;
+
+
+  border-width: 3px;
+  border-left-width: 10px;
+  border-right-width: 10px;*/
+}
+
+h3 {
+  color: #CC6F89;
+  font-family: courier;
 }
 
 p {
+  line-height: 5px;
+  font-family: courier;
+  margin: 30px;
+
+}
+
+a {
+  color: #257D99;
   font-family: courier
+}
+
+body {
+  /*background-image: url(IMG_1288.jpg);*/
+  /*background-size: 50% auto*/
+  background-color: #A4FFE3
+
 }
