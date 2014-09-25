@@ -1,11 +1,12 @@
 require 'sinatra'
+require 'date'
 require './lib/post'
 
 class MyApp < Sinatra::Base
 
-  # As sinatra is waiting, once I get a request to the home page, send the info
-  # and then go back to waiting
+
   get "/" do
+    @posts = Post.all
     erb :index
   end
 
@@ -13,9 +14,8 @@ class MyApp < Sinatra::Base
     erb :about_me
   end
 
-  # The colon + something is like a placeholder
-  get "/posts/:postname" do
-    erb "posts/#{params[:postname]}".to_sym
+  get "/posts/:date/:postname" do
+    erb "posts/#{params[:date]}/#{params[:postname]}".to_sym
   end
 
 end

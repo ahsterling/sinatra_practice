@@ -1,13 +1,21 @@
-<h1><font color = "purple" face = "courier" >Welcome to my blog!</font></h1>
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>It's a blog!</title>
+  </head>
+
+<body>
+  <h1>It's a blog!</h1>
+
+  <% @posts.each do |post| %>
+    <p><a href="<%= post.url %>"><font face = "courier"><%= post.get_title %></font></a></p>
+  <% end %>
+
+</body>
+</html>
 
 <!-- THIS IS AN HTML COMMENT -->
 <!--  make one of these with command + forward slash -->
 <!--  control - shift - period makes a ruby tag -->
-
-<% Post.all.each do |post| %>
-  <h3><a href="<%= post.url %>"><font face = "courier"><%= post.title.gsub("_", " ").capitalize %></font></a></h3>
-<% end %>
-
-
-<!-- <h3><a href="<%= Post.all[0].url %>"><font face = "courier"><%= Post.all[0].title.gsub("_", " ").capitalize %></font></a></h3>
-<h3><a href="<%= Post.all[1].url %>"><font face = "courier"><%= Post.all[1].title.gsub("_", " ").capitalize %></font></a></h3> -->
