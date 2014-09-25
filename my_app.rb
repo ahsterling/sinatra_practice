@@ -6,7 +6,7 @@ class MyApp < Sinatra::Base
 
 
   get "/" do
-    @posts = Post.most_recent(2)
+    @posts = Post.most_recent(5)
     erb :index
   end
 

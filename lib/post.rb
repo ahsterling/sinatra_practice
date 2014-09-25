@@ -1,7 +1,7 @@
 require 'date'
 
 class Post
-  attr_accessor :title, :url, :filename, :date_created
+  attr_accessor :title, :url, :filename, :date_created, :content
   # has title, url, filename
 
   # read my list of post files
@@ -25,6 +25,11 @@ class Post
       new(a)
     end
   end
+
+  def format_date
+    @date_created.strftime("%F")
+  end
+
 
   def self.most_recent(n)
     all.sort_by { |post| post.date_created }.reverse.pop(n)
