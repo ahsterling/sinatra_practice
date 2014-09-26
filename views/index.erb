@@ -1,15 +1,19 @@
 
-
-
-<h1>It's a blog!</h1>
+<h2>Recent Blog Posts</h2>
 
 <% @posts.each do |post| %>
-  <h3><a href="<%= post.url %>"><%= post.get_title %></a>:&nbsp <%= post.format_date %></h3>
+  <h3><a href="<%= post.url %>"><%= post.get_title %></a></h3>
+  <h4><%= post.format_date %></h4>
   <p> <%= post.content %> </p>
 <% end %>
 
+<!-- <form action='/' method='POST'>
+  First Name:
+  <input type="text" name = 'first_name' /><br>
+  Last Name:
+  <input type='text' name='last_name' /><br>
+  <input type="submit"/>
+</form> -->
 
-
-<!-- THIS IS AN HTML COMMENT -->
 <!--  make one of these with command + forward slash -->
 <!--  control - shift - period makes a ruby tag -->

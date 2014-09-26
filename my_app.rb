@@ -13,6 +13,12 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  post "/" do
+    puts params.inspect
+    # Add input into database
+    redirect to ("/")
+  end
+
   get "/about-me" do
     @title = "About Me"
     erb :about_me
@@ -20,13 +26,13 @@ class MyApp < Sinatra::Base
 
   get "/posts" do
     @posts = Post.all
+    erb :posts
   end
 
   get "/posts/:date/:postname" do
     @post = Post.find(request.path_info)
     @title = @post.get_title
     erb :post
-    #erb "posts/#{params[:date]}/#{params[:postname]}".to_sym
   end
 
 
