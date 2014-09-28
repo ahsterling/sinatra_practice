@@ -43,4 +43,8 @@ class Post
     File.read("./views/#{@url}.erb")
   end
 
+  def preview
+    File.readlines("./views/#{@url}.erb", "\n",)[1]
+  end
+
 end

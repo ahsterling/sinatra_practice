@@ -1,5 +1,5 @@
-<h3><%= @post.get_title %></h3>
+<h3 style="text-transform: capitalize"><%= @post.get_title %></h3>
 
 <%= @post.content %>
 
-<p><font face = "courier"><%= @post.format_date %></font></p>
+<p style="text-align: right">Posted <%= @post.format_date %> by Allie Sterling</p>
