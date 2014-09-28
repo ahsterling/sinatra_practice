@@ -1,0 +1,60 @@
+<p> First of all, welcome to my Ada blog!  I’ll be chronicling my experiences with the Ada Developers Academy here, using the opportunity to practice my technical writing skills, share useful tidbits that I’ve learned, and impart rare gems (ruby joke! ha!) of wisdom about learning to program.  To start out, I’m going to share with you my first experience working with Test Driven Development, or TDD as the cool kids call it.  </p>
+<br>
+<p>TDD relies on the process of Red-Green-Refactor, which lets you build your code in small chunks at a time, and even better, lets you think about the end result even before you have any code at all.  I’ve learned that I actually really enjoyed our first foray into TDD, because I was able to take a project that at first seemed incredibly challenging and insurmountable, and separate it into tiny, understandable chunks.
+</p>
+<br>
+<img src='/yoda.jpg' alt='Yoda' width='50%' height = '50%' >
+<br>
+<p>At first, when we started talking TDD, I wasn’t sure how it would be useful for me, at least at this point in my learning.   Conceptually, I understood it, but writing my own tests?  That seemed like another matter altogether.  Luckily, Bookis helped us wade into the TDD pool with the help of some metaphorical floaties, in the form of pre-written tests.   He did encourage us, however, to try writing some of our own tests, which turned out to be a useful exercise. </p>
+<br>
+<p>The first thing to know about writing tests in rspec is that while you are still writing in a Ruby environment, there is a specific syntax to writing tests that’s different than the rest of Ruby.  Here’s an example of a test you could write.  For this example, I wanted to write a class called Yoda that takes a string and returns a Yoda-fied version of that string.
+</p>
+<br>
+<img src='/describe_block.png' alt='Describe block'>
+<br>
+<p>
+  Now, that’s a pretty silly example.  But what it illustrates is that just like in other parts of Ruby, the syntax is highly human readable.   The describe block allows us to clarify what we are testing, while the it block, in which we actually write our test, allows us to further specify the result we’re expecting.
+</p>
+<br>
+
+<p>
+  One thing to note: In this case, I used let to create an instance of the Yodafy class.  That way, I’ll be able to perform tests on an instance of the Yodafy class without having to create a new one each time.
+</p>
+<br>
+
+<p>
+When we type rspec into our command line, even before we’ve written any code, here’s what we’ll see:
+</p>
+<br>
+<img src='/Rspec1.png' alt='First rspec'>
+<br>
+<p>
+  At first, learning how to read these rspec error message seemed daunting, but I’ve come to really appreciate their clarity.  It is easy to see the bugs in my code, because I can simply look where it says “Failure”, and discover that this failure was a NameError - since my yodafy.rb script doesn’t even have a class definition yet, that error makes sense to me.  Once I’ve added that class definition, I’ll run rspec again to see the results.  Here’s what I see this time:
+</p>
+<br>
+<img src='/rspec2.png' alt='Second rspec'>
+<br>
+<p>
+  Hey, it’s a different error!  Even though I’m still seeing red, I now have a new problem to fix, in this case a NoMethodError.  In my test, I used the method transform, but my Yodafy class doesn’t have that method yet!  Now I know what to do next -- add that transform method! Here’s the newest error:
+</p>
+<br>
+<img src='/rspec3.png' alt='Third rspec'>
+<br>
+<p>
+  A new error!  Since we’re still in the red, I’m going to check out what my error says and try to go fix it.  This time, the failure was that the test expected to equal “Use the force, you must.” and instead it got nil.   Which makes sense because my transform method is currently empty.  After adding some code to the transform method, here’s what I get from rspec:
+</p>
+<br>
+<img src='/rspec4.png' alt='Fourth rspec'>
+<br>
+
+<p>
+  Hey, it’s green!  TDD relies on the mantra Red-Green-Refactor, which basically means write a test so that it fails, then make it pass, then refactor your code to make it better.  Since I’m in the green now, that means it’s refactoring time!   Here’s a secret, though:  Right now, all my transform method does is return the string “Use the force, you must.”  Not a perfect solution, obviously, but my test passes!
+</p>
+
+<br>
+
+<p>
+  For the sake of this blog post, I’ll leave Yodafy for now, hopefully to come back later at some point in this blog.  I’m a fan of TDD so far, because I like to be able to see the effect that small changes in my code can have on the rspec failure messages.  I like how rspec helps me figure out exactly what kind of error I’m getting, and I’m able work on my code in small chunks rather than feeling daunted by the prospect of something bigger and scarier.  I look forward to learning even more about how to write good tests and to wade deeper into the TDD pool!
+
+</p>
+<br>
