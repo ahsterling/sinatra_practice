@@ -3,30 +3,40 @@
 
 <head>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  <link href="/layout.css" rel="stylesheet"]]>
+  <link href="/css/layout.css" rel="stylesheet"]]>
   <script src="/app.js"></script>
   <title><%= @title %></title>
 </head>
 
 <body>
-  <h1>Allie's Blog</h1>
-  <h3 style="text-align: center">"If the Apocalypse comes, beep me." - Buffy the Vampire Slayer</h3>
-  <a href="/">Home</a>
-  &nbsp
-  <a href="/about-me">About Me</a>
-  &nbsp
-  <a href = "/posts">Posts</a>
+
+  <div class='header'>
+
+    <div class='brand'>
+      <a href="/">allie sterling</a>
+    </div>
+    <div class='nav'>
+      <ul class = 'horizontal-list'>
+          <li><a href="/about-me">About Me</a></li>
+          <li><a href='/posts'>Blog</a></li>
+          <li><a href=#>Quotations</a></li>
+          <li><a href=#>Contact</a></li>
+      </ul>
+    </div> <!-- .nav -->
+
+  </div> <!-- .header -->
+
+  <div class = 'post-body'>
+
+  <%= yield %>
+
+</div> <!-- .post-body -->
 
 
-<hr>
+  <div class="footer">
+    Created by <strong><em>Allie Sterling</em></strong>, 2014
+  </div>
 
-<%= yield %>
-
-<hr>
-
-
-
-  <font face = "courier">Created by <strong><em>Allie Sterling</em></strong>, 2014</font>
 
 
 </body>

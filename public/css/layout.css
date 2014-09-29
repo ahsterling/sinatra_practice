@@ -1,0 +1,203 @@
+/* HTML Tags ...*/
+
+h1 {
+
+  font-family: 'Open Sans';
+  color: #40FFDC;
+  background-color: #104037;
+  text-transform: lowercase;
+  text-align: center;
+  letter-spacing: .5em;
+  word-spacing: 2px;
+  line-height: 1.5;
+  border-style: solid;
+  border-color: #30BFA5;
+  border-width: 5px;
+  padding: 15px;
+  margin: 0
+}
+
+h2 {
+
+}
+
+
+h3 {
+  color: #104037;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 50px;
+  margin-right: 50px
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+h4 {
+  color:#104037;
+  margin-left: 75px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  line-height: 1;
+  padding: 1px;
+
+}
+
+p {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 0;
+  margin-bottom: 0
+}
+
+a {
+  font-weight: bold;
+
+  text-decoration: underline;
+  margin-left: 20px;
+  color: #104037;
+
+}
+
+body {
+  font-family: 'Open Sans' Arial ;
+
+  color: black;
+  margin: 10px;
+  background-image: url("/IMG_1288.jpg")
+
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block
+}
+
+/* ...HTML Tags*/
+
+.page-heading {
+  font-size: 25pt;
+
+  color: black;
+  /*background-color:#207F6E;*/
+  margin: 20px 200px;
+  /*border-style: solid;*/
+  /*border-width: 3px;*/
+  /*border-color:#104037;*/
+  padding: 5px;
+  text-align: center;
+}
+
+.blog-heading a {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18pt;
+  color: black;
+}
+
+.blog-date {
+  font-size: 12pt;
+  color: black;
+}
+
+/* Layout... */
+
+.horizontal-list {
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-list li {
+  margin: 0 5px ;
+  font-size: 18pt;
+  display: inline-block;
+  list-style: none;
+  padding: 0 2px;
+
+}
+
+.horizontal-list li:hover {
+  background-color: #4aab97
+}
+
+.post-body {
+  background: rgba(255, 255, 255, 1);
+  margin: 20px 200px;
+
+  border:solid;
+}
+
+
+
+
+/* ...Layout */
+
+/* Header ... */
+
+.header {
+  background-color: #104037;
+  color: #ffffff;
+  text-align: right;
+  border: solid;
+  border-width: 5px;
+  border-color: white;
+  height: 85px;
+  overflow: auto;
+}
+
+.footer {
+  background-color: #104037;
+  color: #ffffff;
+  border: solid;
+  border-width: 5px;
+  border-color: :white;
+
+}
+
+
+
+.brand a {
+  margin-left: 6px;
+  float: left;
+  color: #ffffff  ;
+  font-size: 45pt;
+  font-weight: normal;
+  text-decoration: none;
+  display: inline-block;
+
+
+
+  line-height: 82px;
+}
+
+.nav {
+  float: right;
+  
+}
+
+.nav a {
+  color: #40FFDC;
+  text-decoration: none;
+  margin: 0;
+  font-weight: normal;
+}
+
+.header-quote {
+  margin-right: 20px;
+  display: inline
+}
+
+/* ...Header */
+
+/* ...Sidebar */
+
+
+
+/* ...Sidebar */
+
+/* Body... */
+
+
+/* ...Body */

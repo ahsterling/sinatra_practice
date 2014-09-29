@@ -19,6 +19,10 @@ class MyApp < Sinatra::Base
     redirect to ("/")
   end
 
+  get "/test" do
+    erb :test
+  end
+
   get "/about-me" do
     @title = "About Me"
     erb :about_me
