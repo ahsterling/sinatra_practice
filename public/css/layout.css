@@ -1,5 +1,11 @@
 /* HTML Tags ...*/
 
+body {
+  font-family: 'Open Sans' Arial ;
+  color: black;
+  background-image: url("/IMG_1288.jpg")
+}
+
 h1 {
 
   font-family: 'Open Sans';
@@ -60,14 +66,7 @@ a {
 
 }
 
-body {
-  font-family: 'Open Sans' Arial ;
 
-  color: black;
-  margin: 10px;
-  background-image: url("/IMG_1288.jpg")
-
-}
 
 img {
   margin-left: auto;
@@ -118,12 +117,9 @@ img {
 
 }
 
-.horizontal-list li:hover {
-  background-color: #4aab97
-}
 
 .post-body {
-  background: rgba(255, 255, 255, 1);
+  background: rgb(255, 255, 255);
   margin: 20px 200px;
 
   border:solid;
@@ -140,19 +136,21 @@ img {
   background-color: #104037;
   color: #ffffff;
   text-align: right;
-  border: solid;
-  border-width: 5px;
-  border-color: white;
-  height: 85px;
   overflow: auto;
+  height: 85px;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
 }
 
 .footer {
   background-color: #104037;
   color: #ffffff;
-  border: solid;
+  /*border: solid;
   border-width: 5px;
-  border-color: :white;
+  border-color: :white;*/
 
 }
 
@@ -166,9 +164,6 @@ img {
   font-weight: normal;
   text-decoration: none;
   display: inline-block;
-
-
-
   line-height: 82px;
 }
 
@@ -182,6 +177,10 @@ img {
   text-decoration: none;
   margin: 0;
   font-weight: normal;
+}
+
+.nav a:hover {
+  color: #9525ce;
 }
 
 .header-quote {
@@ -199,5 +198,9 @@ img {
 
 /* Body... */
 
+.post-title {
+  text-transform: capitalize;
+  font-size: 25px;
+}
 
 /* ...Body */

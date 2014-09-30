@@ -3,6 +3,7 @@
 
 <head>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href="/css/resets.css" rel="stylesheet"]]>
   <link href="/css/layout.css" rel="stylesheet"]]>
   <script src="/app.js"></script>
   <title><%= @title %></title>
@@ -11,18 +12,20 @@
 <body>
 
   <div class='header'>
+    <div class='container'>
+      <div class='brand'>
+        <a href="/">allie sterling</a>
+      </div> <!-- brand -->
+      <div class='nav'>
+        <ul class = 'horizontal-list'>
+            <li><a href="/about-me">About Me</a></li>
+            <li><a href='/posts'>Blog</a></li>
+            <li><a href=#>Quotations</a></li>
+            <li><a href=#>Contact</a></li>
+        </ul>
+      </div> <!-- .nav -->
+    </div> <!-- container -->
 
-    <div class='brand'>
-      <a href="/">allie sterling</a>
-    </div>
-    <div class='nav'>
-      <ul class = 'horizontal-list'>
-          <li><a href="/about-me">About Me</a></li>
-          <li><a href='/posts'>Blog</a></li>
-          <li><a href=#>Quotations</a></li>
-          <li><a href=#>Contact</a></li>
-      </ul>
-    </div> <!-- .nav -->
 
   </div> <!-- .header -->
 
