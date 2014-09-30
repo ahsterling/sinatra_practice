@@ -27,7 +27,7 @@ class Post
   end
 
   def format_date
-    @date_created.strftime("%F")
+    @date_created.strftime("%B %d, %Y")
   end
 
   def self.find(url)

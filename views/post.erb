@@ -1,9 +1,9 @@
 <br>
 
-<div class = "post-layout">
-  <h3 class = "post-title"><%= @post.get_title %></h3>
+<div class = "blog-container">
+  <h3 class = "blog-header"><%= @post.get_title %></h3>
 
-  <%= @post.content %>
+  <p class = "blog-content"><%= @post.content %></p>
 
   <p>Posted <%= @post.format_date %> by Allie Sterling</p>
 
