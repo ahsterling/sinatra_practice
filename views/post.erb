@@ -1,11 +1,10 @@
-<br>
+<div class = "page-heading">
+  <h2>a post</h2>
+</div>
 
 <div class = "blog-container">
-  <h3 class = "blog-header"><%= @post.get_title %></h3>
-
+  <h3 class = "blog-heading"><%= @post.get_title %></h3>
+  <p class = "blog-date"><%= @post.format_date %> </p>
   <p class = "blog-content"><%= @post.content %></p>
 
-  <p>Posted <%= @post.format_date %> by Allie Sterling</p>
-
 </div>
-<br>

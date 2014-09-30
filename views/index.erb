@@ -1,19 +1,15 @@
-
-
 <div class = "page-heading">
-  <h2>Recent Blog Posts</h2>
+  <h2>Home</h2>
 </div>
-<br>
+
 <div class = 'blog-container'>
-<% @posts.each do |post| %>
-
-    <h3 class = 'blog-heading'><a href="<%= post.url %>" style="text-transform: capitalize"><%= post.get_title %></a></h3>
-    <h4 class = 'blog-date'><%= post.format_date %></h4>
-    <p class= "blog-content"> <%= post.preview %> </p>
-    <br>
-    <p><a href = "<%=post.url %>" > Read More . . . </a></p>
-    <br>
-
-<% end %>
+  <% @posts.each do |post| %>
+      <h3 class = 'blog-heading'><a href="<%= post.url %>" style="text-transform: capitalize"><%= post.get_title %></a></h3>
+      <h4 class = 'blog-date'><%= post.format_date %></h4>
+      <p class= "blog-content"> <%= post.preview %> </p>
+      <br>
+      <p class= "read-more"><a href = "<%=post.url %>" > Read More . . . </a></p>
+      <br>
+  <% end %>
 
 </div> <!-- .blog-container -->
