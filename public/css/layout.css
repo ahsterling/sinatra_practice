@@ -5,7 +5,7 @@ body {
   color: black;
   background: #104037;
   min-width: 1240px;
-  background: url("/IMG_1288.jpg")
+
 }
 
 h1 {
@@ -162,7 +162,7 @@ img {
 }
 
 .background {
-  /*background: url("../IMG_1288.jpg");*/
+  background: url("../IMG_1288.jpg");
   margin: -1px;
   padding: 1px;
   min-width: 1240px;
