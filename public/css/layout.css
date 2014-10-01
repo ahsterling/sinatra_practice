@@ -161,7 +161,7 @@ img {
 }
 
 .background {
-  background-image: url("/IMG_1288.jpg");
+  background: url("/IMG_1288.jpg");
   margin: -1px;
   padding: 1px;
   min-width: 1240px;
