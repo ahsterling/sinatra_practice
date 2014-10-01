@@ -18,57 +18,48 @@
       </div> <!-- brand -->
       <div class='nav'>
         <ul class = 'horizontal-list'>
-            <li><a href="/about-me">about</a></li>
-            <li><a href='/posts'>blog</a></li>
-            <li class='dropdown-anchor'>
-              <a href="#">quotations</a>
-              <ul class='dropdown'>
-                <li><a href="#">Leslie Knope</a></li>
-                <li><a href="#">Liz Lemon</a></li>
-                <li><a href="#">Tami Taylor</a></li>
-              </ul>
-            </li>
-            <li><a href=#>contact</a></li>
+          <li><a href="/about-me">about</a></li>
+          <li><a href='/posts'>blog</a></li>
+          <li class='dropdown-anchor'>
+            <a href="#">quotations</a>
+            <ul class='dropdown'>
+              <li><a href="#">Leslie Knope</a></li>
+              <li><a href="#">Liz Lemon</a></li>
+              <li><a href="#">Tami Taylor</a></li>
+            </ul>
+          </li>
+          <li><a href=#>contact</a></li>
         </ul>
       </div> <!-- .nav -->
-    </div> <!-- container -->
 
+    </div> <!-- .container -->
   </div> <!-- .header -->
-
   <div class = "background">
-    <!-- <img id="background-image" src="IMG_1288.jpg" alt = "background"/> -->
+    <div class = 'container'>
 
-  <div class = 'page-container'>
-
-
-
-      <div class = 'sidebar'>
-        <h2 class = 'page-heading'> More Info</h2>
-          <p>
+      <div class = 'page-container'>
+        <div class = 'sidebar'>
+          <h2 class = 'page-heading'> More Info</h2>
+          <div class = "question-box">
             Ask me a question!
+          </div>
           </p>
-          <form action='/'>
+          <form class = 'question-box' action='/'>
             <input type='text' name='question' />
           <input type='submit'>
           </form>
-      </div> <!-- .sidebar-container'-->
+        </div> <!-- .sidebar-container'-->
 
-    <div class = 'content-container'>
-      <%= yield %>
-    </div>
+        <div class = 'content-container'>
+          <%= yield %>
+        </div>
+      </div><!-- .page-container -->
+    </div> <!-- .container -->
+  </div> <!--.background -->
 
-
-   <!-- .content-container -->
- </div> <!-- .page-container -->
-
-  </div>
   <div class="footer">
-
       Created by <strong><em>Allie Sterling</em></strong>, 2014
-
-  </div> <!-- .footer
-
-
+  </div> <!-- .footer -->
 
 </body>
 </html>
