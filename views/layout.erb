@@ -44,11 +44,15 @@
 
       <div class = 'sidebar'>
         <h2 class = 'page-heading'> More Info</h2>
-          Test
-          Test
-          Test
-      </div>
-    
+          <p>
+            Ask me a question!
+          </p>
+          <form action='/'>
+            <input type='text' name='question' />
+          <input type='submit'>
+</form>
+      </div> <!-- .sidebar-container'-->
+
     <div class = 'content-container'>
       <%= yield %>
     </div>
