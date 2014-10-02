@@ -1,13 +1,13 @@
 /* HTML Tags ...*/
 
 body {
-  font-family: 'Raleway' Arial ;
+  font-family: 'Raleway' helvetica sans-serif;
   color: black;
   background: #104037;
 }
 
 h1 {
-  font-family: 'Raleway';
+  font-family: 'Raleway', helvetica sans-serif;
   color: #40FFDC;
   background-color: #104037;
   text-transform: lowercase;
@@ -22,6 +22,11 @@ h1 {
   margin: 0
 }
 
+h2 {
+  margin: 0;
+  font-family: "Raleway" helvetica sans-serif ;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -31,6 +36,7 @@ a {
 
 h3 {
   text-align: left;
+  margin: 0;
   /*font-size: 22px;*/
   /*font-weight: bold;*/
 }
@@ -72,14 +78,13 @@ img {
   padding: 5px;
   text-align: left;
   border-bottom: solid;
-
+  font-family: "Raleway";
   border-color: black;
 }
 
 .background {
-  background: url("../IMG_1288.JPG");
-  /*background: #b6b6b6;*/
-  margin: -1px;
+  background: url("/IMG_1288.JPG");
+  margin: 0px;
   padding: 1px;
   min-height: 600px;
   width: 100%;
@@ -114,10 +119,11 @@ img {
   text-transform: capitalize;
 }
 
-.body-heading h3 {
+.body-heading {
   font-weight: bold;
   text-decoration: none;
   color: black;
+  font-family: "Raleway" sans-serif;
 }
 
 .blog-date {
@@ -272,6 +278,9 @@ img {
   width: 80px;
 }
 
+#twitter {
+  background-image: url("/twitter-64.png")
+}
 
 .sidebar-text {
   text-align: center;
