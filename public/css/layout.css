@@ -49,7 +49,8 @@ p {
 img {
   margin-left: auto;
   margin-right: auto;
-  display: block
+  display: block;
+  max-width: 580px;
 }
 
 /* ...HTML Tags*/
@@ -98,12 +99,12 @@ img {
 
 /* Blog ... */
 
-.blog-container {
+.body-container {
   width: 580px;
   margin: 10px auto
 }
 
-.blog-heading {
+.body-heading {
   padding-top: 5px;
   padding-left: 5px;
   padding-bottom: 5px;
@@ -113,7 +114,7 @@ img {
   text-transform: capitalize;
 }
 
-.blog-heading h3 {
+.body-heading h3 {
   font-weight: bold;
   text-decoration: none;
   color: black;
@@ -125,7 +126,7 @@ img {
   padding: 10px 0;
 }
 
-.blog-content {
+.body-content {
   padding: 0 10px;
   line-height: 5;
 }

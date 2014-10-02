@@ -39,6 +39,16 @@ class MyApp < Sinatra::Base
     erb :post
   end
 
+  get "/quotations" do
+    erb :quotations
+  end
+
+  get "/quotations/:name" do
+    erb "quotations/#{params[:name]}".to_sym
+  end
+
+
+
 
 
 end
