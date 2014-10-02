@@ -251,7 +251,7 @@ img {
   text-align: left;
   height: 30px;
   padding: 10px;
-  min-width: 1220px;
+  /*min-width: 1220px;*/
 }
 
 /* ...Footer */
@@ -279,7 +279,10 @@ img {
 }
 
 #twitter {
-  background-image: url("/twitter-64.png")
+  background: url("/twitter-64.png") no-repeat;
+  width: 64px;
+  height: 100%;
+
 }
 
 .sidebar-text {
@@ -289,3 +292,9 @@ img {
 }
 
 /* ...Sidebar */
+
+/*@media (max-width:1000px) {
+  .container {
+    width: 100%;
+
+  }*/
