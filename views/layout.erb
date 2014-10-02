@@ -2,8 +2,7 @@
 <html>
 
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  <link href="/css/resets.css" rel="stylesheet"]]>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>  <link href="/css/resets.css" rel="stylesheet"]]>
   <link href="/css/layout.css" rel="stylesheet"]]>
   <script src="/app.js"></script>
   <title><%= @title %></title>
@@ -31,24 +30,30 @@
           <li><a href=#>contact</a></li>
         </ul>
       </div> <!-- .nav -->
-
     </div> <!-- .container -->
   </div> <!-- .header -->
+
+
   <div class = "background">
     <div class = 'container'>
 
       <div class = 'page-container'>
         <div class = 'sidebar'>
           <h2 class = 'page-heading'> More Info</h2>
-          <div class = "question-box">
+          <p class = "sidebar-text">
             Ask me a question!
-          </div>
           </p>
           <form class = 'question-box' action='/'>
             <input type='text' name='question' />
           <input type='submit'>
           </form>
-        </div> <!-- .sidebar-container'-->
+          <p class = "sidebar-text">
+            Find me online:
+          </p>
+          <a class= "logo" href ="https://github.com/ahsterling"><img src ="/github-6-64-lighter.png"/></a>
+          <a class= "logo" href ="https://twitter.com/allie_sterling"><img src = "/twitter-64-lighter.png"/></a>
+          <a class= "logo" href = "https://www.linkedin.com/profile/view?id=98562740&trk=nav_responsive_tab_profile_pic"><img src= "/linkedin-64-lighter.png"/></a>
+        </div> <!-- .sidebar -->
 
         <div class = 'content-container'>
           <%= yield %>
