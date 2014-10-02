@@ -64,10 +64,11 @@ img {
 /* Body... */
 
 .page-container {
-  width: 1000px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 130px;
+  margin-bottom: 25px;
   display: block;
 }
 
@@ -77,7 +78,7 @@ img {
   background-color:#207F6E;
   padding: 5px;
   text-align: left;
-  border-bottom: solid;
+  border-bottom: none;
   font-family: "Raleway";
   border-color: black;
 }
@@ -91,9 +92,9 @@ img {
 }
 
 .content-container {
-  width: 700px;
+  width: 70%;
   background-color: white;
-  margin-left: 10px;
+
   border: solid;
 
 }
@@ -105,7 +106,7 @@ img {
 /* Blog ... */
 
 .body-container {
-  width: 580px;
+  width: 85%;
   margin: 10px auto
 }
 
@@ -166,7 +167,7 @@ img {
 }
 
 .container {
-  width: 1000px;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -217,7 +218,11 @@ img {
   position: absolute;
   display: block;
   text-align: left;
+  margin-top: 20px;
+}
 
+.dropdown-anchor {
+  height: 90px;
 }
 
 .dropdown {
@@ -225,11 +230,13 @@ img {
   background: #104037;
   position: relative;
   left: 0;
-  padding-top: 10px;
-  width: 175px;
+  width: 170px;
+  height: 100%
 }
 
-
+.dropdown li {
+  padding-top: 3px;
+}
 
 .header-quote {
   margin-right: 20px;
@@ -260,7 +267,7 @@ img {
 /* ...Sidebar */
 
 .sidebar {
-  width: 260px;
+  width: 23%;
   background-color: white;
   float: right;
   border: solid;
@@ -271,11 +278,12 @@ img {
   padding: 10px;
   width: 240px;
   margin-left: 25px;
+  display: inline;
 }
 
 .logo {
   display: inline-block;
-  width: 80px;
+  
 }
 
 #twitter {
@@ -293,8 +301,42 @@ img {
 
 /* ...Sidebar */
 
-/*@media (max-width:1000px) {
-  .container {
+@media (max-width:1000px) {
+  .nav {
+    float:left;
+    background-color: black;
+    height: 30px;
+    width: 100%;
+    margin-top: 4px;
+    padding: 0;
+  }
+
+  .brand {
+    float: left;
+  }
+
+  .sidebar {
+    float:left;
+    width: 100%;
+    border-bottom: none;
+    margin-bottom: 9px;
+  }
+
+  .content-container {
     width: 100%;
 
-  }*/
+  }
+
+  .page-heading {
+    height: 100%;
+  }
+
+@media (max-width: 558px) {
+  .header {
+
+  }
+
+  .nav .horizontal-list li a {
+    font-size: 16pt;
+  }
+}
