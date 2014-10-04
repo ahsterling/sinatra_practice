@@ -95,7 +95,7 @@ img {
   width: 70%;
   background-color: white;
 
-  border: solid;
+  /*border: solid;*/
 
 }
 
@@ -147,7 +147,7 @@ img {
 
 .horizontal-list > li {
   margin: 0 5px ;
-  font-size: 18pt;
+  /*font-size: 18pt;*/
   display: inline-block;
   list-style: none;
   padding: 0 2px;
@@ -164,10 +164,11 @@ img {
   height: 85px;
   position: fixed;
   width: 100%;
+
 }
 
 .container {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -182,6 +183,7 @@ img {
 
 .brand a {
   color: #94FFEB;
+
 }
 
 .brand a:hover {
@@ -208,6 +210,7 @@ img {
   padding: 0 5px;
   font-weight: normal;
   margin: 0;
+  font-size: 18pt;
 }
 
 .nav .horizontal-list li a:hover {
@@ -267,11 +270,11 @@ img {
 /* ...Sidebar */
 
 .sidebar {
-  width: 23%;
+  width: 26%;
   background-color: white;
   float: right;
-  border: solid;
-  border-color: black;
+  /*border: solid;
+  border-color: black;*/
 }
 
 .question-box {
@@ -283,7 +286,7 @@ img {
 
 .logo {
   display: inline-block;
-  
+
 }
 
 #twitter {
@@ -300,15 +303,16 @@ img {
 }
 
 /* ...Sidebar */
-
-@media (max-width:1000px) {
+/*This seems to be when it's at 1189*/
+@media (max-width:950px) {
   .nav {
     float:left;
     background-color: black;
     height: 30px;
     width: 100%;
-    margin-top: 4px;
+    margin-top: 3px;
     padding: 0;
+    margin-left: 1px;
   }
 
   .brand {
@@ -316,7 +320,7 @@ img {
   }
 
   .sidebar {
-    float:left;
+    /*float:left;*/
     width: 100%;
     border-bottom: none;
     margin-bottom: 9px;
@@ -331,12 +335,32 @@ img {
     height: 100%;
   }
 
-@media (max-width: 558px) {
-  .header {
+@media (max-width: 600px) {
 
+  .brand {
+    font-size: 40pt;
   }
-
   .nav .horizontal-list li a {
-    font-size: 16pt;
+    font-size: 14pt;
   }
+
+  .nav .horizontal-list li {
+    font-size: 14pt;
+    padding: 0;
+  }
+
+  .header {
+    /*height: 50pt;*/
+  }
+}
+
+@media (max-width: 500px) {
+  .nav .horizontal-list li a {
+    font-size: 11pt;
+  }
+
+  .brand {
+    font-size: 30pt;
+  }
+
 }
