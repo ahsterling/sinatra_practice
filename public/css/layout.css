@@ -6,6 +6,14 @@ body {
   background: #104037;
 }
 
+code {
+  font-family: monospace;
+  background-color: #c6c2ce;
+  font-size: 12pt;
+  font-weight: normal;
+
+}
+
 h1 {
   font-family: 'Raleway', helvetica sans-serif;
   color: #40FFDC;
@@ -56,8 +64,14 @@ img {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  max-width: 580px;
+  max-width: 100%;
 }
+
+.image-caption {
+  font-size: 10pt;
+  text-align: center;
+}
+
 
 /* ...HTML Tags*/
 
@@ -136,6 +150,11 @@ img {
 .body-content {
   padding: 0 10px;
   line-height: 5;
+}
+
+.body-link {
+  text-decoration: underline;
+  color: #1219c6
 }
 
 .read-more {

@@ -45,6 +45,7 @@ class Post
 
   def preview
     File.readlines("./views/#{@url}.erb", "\n",)[1]
+
   end
 
 end

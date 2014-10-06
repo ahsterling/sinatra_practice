@@ -1,0 +1,67 @@
+
+<p>Phew!  Week five, complete. During our fifth week at Ada we spent a lot of time learning HTML and CSS, and we got an introduction to JavaScript and jQuery.  I found these topics to be at times extremely frustrting, and at other times incredibly rewarding.  Watching my blog go from something that looked straight out of 1993 to something a little more modern was definitely an exciting process.  I'm still not sure which part of web development I'll want to pursue after Ada, but it was great to get a feel for the kind of works that is done on the front end.</p>
+<br>
+<img src="/regex.jpg" alt="Regular Expressions"/>
+<p class = "image-caption">Source: http://www.w3programmers.com/working-with-php-regular-expression/</p>
+<br>
+<p>This blog post, however, isn't about HTML and CSS. Today I want to talk about Regular Expressions.  We were really lucky to hear a great lecture from <a class = "body-link" target="_blank" href="https://twitter.com/nellshamrell">Nell Shamrell</a> last week about the mystery of the regular expression, and I wanted to share a little bit about what we learned.  While my understanding of how regular expressions work is still limited, I am starting to get a better handle on exactly how they work and what they can be useful for. </p>
+<br>
+
+
+<p>A regular expression is super useful for when you have a string of some sort and you want to figure out if it matches a specific pattern.  When the user inputs something like an email address, phone number, or credit card number, regexes can be used to determine the validity of those inputs.  Here's how they work.</p>
+<br>
+<p>Regular expressions are bookended by forward slashes, with the pattern that you want to match located between those forward slashes. If you want to match a specific first name, for example, you could write it like this:</p>
+<br>
+  <code> /Buffy/</code>
+<br>
+<br>
+<p>To test whether a string contains a match, we can use the matching operator <code>=~</code>.  The <code>=~</code> operator will return the character index if there's a match and nil if there's no match. </p>
+  <br>
+  <code>
+    /Buffy/ =~ "Buffy the Vampire Slayer"
+    => 0
+  </code>
+  <br>
+  <br>
+<p>This is telling us that there is a match, and it begins in the 0th index of the given string.  Yay!</p>
+<br>
+<p>With the MatchData class, we can use the <code>match</code> method to determine if a given string contains the pattern, and instead of returning the character index of the matched pattern, it will return an instance of the MatchData class.  We can then perform operations on that object, like <code>to_s</code>, which returns a string, <code>pre-match</code>, which returns everything before the match, and <code>post_match</code>, which returns everything after the match.  We call match on our regex, and it takes the string we want to match as an argument.  Here's what that looks like:
+<br>
+<br>
+  <p><code>m = /Buffy/.match("Buffy the Vampire Slayer")</code></p>
+  <p><code>m.post_match</code></p>
+  <p><code> => " the Vampire Slayer"</code></p>
+
+<br>
+<br>
+
+<p>In some cases, we want to match more than one of a specific character, and there are a few ways we can do that. Putting <code>*</code> after any of the characters in your regex means that it will make a match if there are zero or more instances of that character.  Putting <code>+</code> after a character in your regex will match if there are one of more instances of that character.</p>
+<br>
+<p><code>/f+/.match("Buffy the Vampire Slayer").to_s</code></p>
+<p><code>=> "ff"</code></p>
+<br>
+<p>Sometimes, though, the pattern you want to match isn't quite so specific as a particular word, phrase, or letter.  What if you wanted to make sure that the user input only contained numbers?  Or only contained letters?  Or maybe both?  There are a few shortcuts we can use to help us out here.  Here's a few: </p>
+<br>
+<p><code>/w/</code>: this matches any word character, including numbers, letters, and underscores</p>
+<p><code>/W/</code>: this matches any NON-word character, including numbers, letters, and underscores</p>
+
+<p><code>/d/</code>: this matches any digit</p>
+<p><code>/D/</code>: this matches any NON-digit</p>
+
+<p><code>/[a-zA-Z]/</code>: this matches any letter, uppercase or lowercase</p>
+<p><code>/a?/</code>: the question mark will make that part of the match optional</p>
+<p><code>/a{3}/</code>: the curly brackets after a character will match exactly that number of the characters, in this case it would only match "aaa"</p>
+<br>
+<p>The last cool thing I'll share about regular expressions, at least for now, is how to use substitutions with regular expressions.  Using the <code>sub</code> or <code>gsub</code> method, we can find a match using a regex, and then replace it with a different string.  The difference between <code>sub</code> and <code>gsub</code> is that <code>sub</code> will only replace the first match it finds, while <code>gsub</code> will replace all the matches.  Both of these methods take two arguments, a regular expression as the first argument, and the replacement string as the second argument.  Let's see an example. </p>
+<br>
+<p><code>"Buffy the Vampire Slayer".sub(/Buffy/, "Allie")</code></p>
+<p><code>=> "Allie the Vampire Slayer"</code></p>
+<p><code>"Buffy slays vampires.  Buffy is the best!".gsub(/Buffy/, "Allie")</code></p>
+<p><code>=> "Allie slays vampires.  Allie is the best!"</code></p>
+<br>
+<p>One really cool tool for testing your regular expressions is <a class='body-link' target="_bland" href: "http://rubular.com/">Rubular</a>, which lets you try out your reglar expressions with some test cases to determine whether it will make a match or not.  Thanks to Nell Shamrell for showing it to us!</p>
+<br>
+<p>So there you have it!  There are tons of ways to use regexes, and this post gave you just a small sampling of the possibilities available with regexes.  I'm excited to try incorporating regexes into my code more often, and I hope you do too!</p>
+
+<br>
+<br>
