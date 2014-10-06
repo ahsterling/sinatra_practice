@@ -23,9 +23,9 @@
   </code>
   <br>
   <br>
-<p>This is telling us that there is a match, and it begins in the 0th index of the given string.  Yay!</p>
+<p>This is telling us that there is a match, and it begins on the 0th index of the given string.  Yay!</p>
 <br>
-<p>With the MatchData class, we can use the <code>match</code> method to determine if a given string contains the pattern, and instead of returning the character index of the matched pattern, it will return an instance of the MatchData class.  We can then perform operations on that object, like <code>to_s</code>, which returns a string, <code>pre-match</code>, which returns everything before the match, and <code>post_match</code>, which returns everything after the match.  We call match on our regex, and it takes the string we want to match as an argument.  Here's what that looks like:
+<p>We can also use the <code>match</code> method to determine if a given string contains the pattern, and instead of returning the character index of the matched pattern, it will return an instance of the MatchData class.  We can then perform operations on that object, like <code>to_s</code>, which returns a string, <code>pre-match</code>, which returns everything before the match, and <code>post_match</code>, which returns everything after the match.  We call match on our regex, and it takes the string we want to match as an argument.  Here's what that looks like:
 <br>
 <br>
   <p><code>m = /Buffy/.match("Buffy the Vampire Slayer")</code></p>
@@ -35,7 +35,7 @@
 <br>
 <br>
 
-<p>In some cases, we want to match more than one of a specific character, and there are a few ways we can do that. Putting <code>*</code> after any of the characters in your regex means that it will make a match if there are zero or more instances of that character.  Putting <code>+</code> after a character in your regex will match if there are one of more instances of that character.</p>
+<p>In some cases, we want to match more than one of a specific character, and there are a few ways we can do that. Putting <code>*</code> after any of the characters in your regex means that it will make a match if there are zero or more instances of that character.  Putting <code>+</code> after a character in your regex will make a match if there are one of more instances of that character.</p>
 <br>
 <p><code>/f+/.match("Buffy the Vampire Slayer").to_s</code></p>
 <p><code>=> "ff"</code></p>
