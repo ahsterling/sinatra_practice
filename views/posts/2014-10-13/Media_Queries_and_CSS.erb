@@ -1,0 +1,29 @@
+
+<p>While I was working on my blog a couple of weeks ago, I became obsessed with finding ways to make the site more dynamic and responsive to things like window size.  It's definitely not perfect yet, but in the process of figuring out how to add this extra functionality to my site, I was able to learn more about media queries in CSS. </p>
+<br>
+<p>The ever reliable <a class = "body-link" target = "_blank" href="http://htmldog.com/guides/css/advanced/mediaqueries/"> HTML Dog</a>, explains that using media queries allows you to "specify different design choices depending on screen size."  In this day and age, that is obviously super useful, as you never know whether a user will be viewing your site from a phone, tablet, desktop computer, and other window sizes.</p>
+<br>
+<p>In the scope of this website, I found media queries most useful for making the site more dynamic as the window is resized.  As I originally designed it, I found that the site would start to look really funky the smaller the window became.  It generally looked something like this:</p>
+<br>
+<img src = "/without-media-query.png" alt = "without media query">
+<br>
+<p>Yeah, not great. Because the elements weren't dynamic enough, elements from my header and my body would just pile on top of each other, rather than resize appropriately.  But how to fix it?</p>
+<br>
+<p>I ended up using media queries to address this problem.  I decided that it was impractical to have my nav bar remain on the right side of the screen no matter what the window size.  Instead, I wanted my nav bar to move below my name when the window got to a certain size.  In my CSS, I added a selector that looked something like this: </p>
+<br>
+<img src = "/media-query-css.png" alt = "media query">
+<br>
+<p>My media query simply starts out with the selector <code>@media</code>, followed by <code>max-width: 950px</code>.  The <code>max-width: 950px</code> argument means that as when the window size is 950 pixels or smaller, the css will change.  Within the curly brackets, I write CSS in exactly the same way as before.</p>
+<br>
+<p>Here, I'm indicating that when the window size is 950 pixels or less, the nav bar should float left rather than float right.  I also indicate that the nav should have a background color, a changed height, and a little bit of margin. </p>
+<br>
+<p>
+Another design decision I made was to have the sidebar move under the newly placed nav bar, so that a user would not have to scroll to the right to see the sidebar.  As you see in the CSS for this media query, I have changed the sidebar to float left.  The result looks something like this, when the window is resized to 950px or fewer.
+</p>
+<br>
+<img src = "/new-nav-sidebar.png" alt = "new nav and sidebar">
+<br>
+<p>Hey, that looks better!  It's definitely not perfect, and I'm sure there are many more ways to make my website responsive, but for now, I'm glad that it's still readable even at a smaller window size.  I encourage anyone who is new to CSS to try playhing around with media queries, you'll be surprised what you can do!  </p>
+<br>
+<p>Until next time!</p>
+<br>
