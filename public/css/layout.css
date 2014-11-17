@@ -8,11 +8,17 @@ body {
 
 code {
   font-family: monospace;
-  background-color: #c6c2ce;
+  /*background-color: #c6c2ce;*/
   font-size: 12pt;
   font-weight: normal;
 
 }
+
+/*.multi-line-code p {
+  margin-left: 20px;
+}*/
+
+
 
 h1 {
   font-family: 'Raleway', helvetica sans-serif;
@@ -171,6 +177,11 @@ img {
   list-style: none;
   padding: 0 2px;
   position: relative;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 50px;
 }
 
 /* ...Layout */

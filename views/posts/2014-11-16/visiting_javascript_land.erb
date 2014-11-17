@@ -1,0 +1,60 @@
+
+<p>During our 5th week of Ada, we had a quick introduction to JavaScript and jQuery in the same week that we were learning HTML and CSS.  Although jQuery seemed like it would ultimately be a cool thing to learn, at the time I felt really dragged down by my frustrations with CSS, and so didn’t really get a chance to do anything with it.  I put it out of my mind, and didn’t really think about jQuery or JavaScript again until . . . last week.  And this time around, I actually kind of liked it!</p>
+<br>
+<p>We spent the first three days of week 11 (has it already been that long?!) doing a crash course intro into JavaScript with Elisabeth Robson, which--fun fact--has nothing to do with Java!  Who knew?  Initially, I think the biggest road block was just learning how to interpret JavaScript at all.  Why so many semicolons and curly braces?  What happened to the human-readability I had grown accustomed to in Ruby?  Let’s not even get started on what it means to pass functions to other functions as arguments.</p>
+<br>
+<p>So, after a week of JavaScript, here are some of my major take-aways.  Hopefully they’ll help you out too!</p>
+<br>
+<ol>
+  <li><p>Semicolons!  Use ‘em.  While this can seem annoying when you’re coming from a language like Ruby that doesn’t require it, get used to adding semicolons to the end of everything!  From everything I’ve been told, weird stuff starts happening if you don’t have them.  Ominous!</p></li>
+  <br>
+  <li><p>Parentheses!  One thing that we learned early on in one of our projects this week was that in JavaScript, to call a function that doesn’t take any parameters, you actually have to add <code>()</code> to the end of the function name.  If you don’t include the parentheses, the function doesn’t actually get called.  So if you have a function called <code>bark</code>, the only way to call it is to write <code>bark();</code>.</p>  </li>
+  <br>
+  <li>
+    <p>“Objects” in JavaScript:  Here’s the thing about so-called “objects” in JavaScript -- the first time Elisabeth explained them, I said to myself, “Oh, this is just a hash like in Ruby!” Which is only kind of true as it turns out.  Yes, they look very similar, in that an “object” consists of a series of key-value pairs, like this:</p>
+    <br>
+  	<code class = "multi-line-code">
+      <p>var huxley = {
+                  <p class = "indent-1">&nbsp&nbspname: “Huxley”,</p>
+                  <p class = "indent-1">&nbsp&nbspbreed: “golden retriever”,</p>
+                  <p class = "indent-1">&nbsp&nbspage: 1</p>
+              <p>};</p>
+    </code>
+    <br>
+  	<p>Looks like a hash, huh?  Except we can access the values of this hash in a different way than Ruby.  We can simply call <code>huxley.name</code> or <code>huxley.breed</code>, and it will return the value associated with that key.  How else is it different from a ruby hash?  Let’s take a look:</p>
+    <br>
+    <code class = "multi-line-code">
+      <p>huxley = {</p>
+          <p>&nbsp&nbspname: “Huxley”,</p>
+          <p>&nbsp&nbspbreed: “golden retriever”,</p>
+          <p>&nbsp&nbspbark: function() {</p>
+      <p>&nbsp&nbsp&nbsp&nbspconsole.log(“woof!”);</p>
+      <p>&nbsp&nbsp}</p>
+      <p>};</p>
+    </code>
+    <br>
+    <p>In this JavaScript object, we define one of the keys as bark and its value as . . . a function?  How would we represent something like this in Ruby?  Let's take a look: </p>
+    <br>
+    <code class = "multi-line-code">
+      <p>class Dog</p>
+      <p>&nbsp&nbspattr_accessor :name, :breed</p>
+
+      <p>&nbsp&nbspdef initialize(name, breed)</p>
+      	<p>&nbsp&nbsp&nbsp&nbsp@name = name</p>
+      	<p>&nbsp&nbsp&nbsp&nbsp@breed = breed</p>
+      <p>&nbsp&nbspend</p>
+
+      <p>&nbsp&nbspdef bark</p>
+      	<p>&nbsp&nbsp&nbsp&nbspputs “woof!”</p>
+      <p>&nbsp&nbspend</p>
+      <p>end</p>
+      <br>
+      <p>huxley = Dog.new("Huxley", "golden retriever")</p>
+    </code>
+    <br>
+    <p>While it definitely looks very different, the functionality of these two "objects" is quite similar.  With <code>attr_accessor</code> in Ruby, we can call <code>huxley.name</code> and <code>huxley.breed</code>, just like in our JavaScript example!  We can also call the <code>bark</code> method on Huxley with <code>huxley.bark</code>.</p>
+  </li>
+</ol>
+<br>
+<p>So there you have it!  Three important things to remember about JavaScript when you're starting out.  These tips helped me debug tons of the JavaScript I ended up writing this week!  Until next time!  </p>
+<br>
