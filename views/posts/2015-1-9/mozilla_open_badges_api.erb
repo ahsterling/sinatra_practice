@@ -1,0 +1,157 @@
+
+<p>This week, we had an opportunity to start brainstorming and exploring new technologies that we might want to use for our capstone project, which we won't "officially" start until February. My current idea involves working with book data from a local middle school library collection to create a student-friendly web app for earning digital learning badges related to items in the collection and other learning goals.  In my research, I encountered <a href="http://openbadges.org/">Mozilla Open Badges</a>, which is described on their website as a "free software and an open technical standard any organization can use to create, issue and verify digital badges."  For this blog post, I'll be outlining  how to get started with Mozilla Open Badges and the BadgeKit tool.
+</p>
+<br>
+<p>
+  While the documentation that Mozilla provides is incredibly useful, as a node.js rookie, it required a lot of trial-and-error, as well as a couple restarts, to get my Open Badges started.  Mozilla has created a tool for moderating badges called Mozilla BadgeKit, which was launched in March of 2014 and is still in private beta mode.  But don't fret!  Even if you don't have access to the beta, Mozilla also provides instructions for hosting your own instance of BadgeKit, which is what I ended up doing.  Their <a href="https://github.com/mozilla/openbadges-badgekit/wiki/BadgeKit-Self-Hosting-Guide">Self-Hosting Guide</a> was really useful for getting started.  Instead of just re-writing the instructions that Mozilla has already created, I'm instead going to point out the places in the guide where there was some missing information that I had to discover.
+</p>
+<br>
+<h4>Setting up the BadgeKit API</h4>
+<br>
+<p>
+  The BadgeKit API is written in node.js, which means that once you've cloned the BadgeKit API repo and the OpenBadges-badgekit repo, you'll need to run <code>npm install</code> from the terminal to install the needed dependencies. (Tip: In rails, this would be equivalent to running <code>bundle install</code> after adding something to your gemfile.)
+</p>
+<br>
+<p>
+  The BadgeKit API uses MySQL as a database, so make sure you have installed MySQL on your machine.  I followed <a href="https://gorails.com/setup/osx/10.10-yosemite">this tutorial</a> from gorails.com to set that up, skipping to the section titled "MySQL."  Their tutorial sets the user to "root", and no password, which is how I set up my machine as well.  To check that MySql is set up and ready to go, type <code>mysql --user=root</code> into the command line.  To get out of MySQL, type <code>\q</code>.
+</p>
+<br>
+<p>
+  Continuing with the BadgeKit self-hosting tutorial, the next thing to do is to set up environment variables.  Since these tripped me up quite a few times, I'm going to explain here what each of them should be, if you're trying to run the api and the BadgeKit Web App locally.  To start, make a .env file in the root of the BadgeKit-API directory.  You'll need to set the following variables:
+</p>
+<br>
+<p><strong>DB_HOST</strong>: for hosting the api locally, this should be set to 'localhost'</p>
+<p><strong>DB_NAME</strong>: this is the name of a databse you'll create in MySQL</p>
+<p><strong>DB_USER</strong>: the username for your MySQL database, in my case 'root'</p>
+<p><strong>DB_PASSWORD</strong>: your database password, in my case I don't have one set, so don't need this variable</p>
+<p><strong>MASTER_SECRET</strong>: set this as a unique variable, which you'll use to authenticate requests to the api</p>
+<p><strong>PORT</strong>: which port on your computer will this server run on, I used 8080</p>
+<br>
+<p>
+  The next step is to create the database that matches the DB_NAME in your .env file.  To start MySQL, type <code>mysql --user=root</code> into the command line (if you've set a password for the database, then you'll type <code>mysql --user=root --password=yourpassword</code>).
+</p>
+<br>
+<p>
+  Once MySQL starts, type <code>CREATE DATABASE badgekitapi;</code>, replacing badgekitapi with whatever you named your database in the .env file.
+</p>
+<br>
+<p>
+  After you exit out of the database by typing <code>\q</code>, go ahead and run the migrations by typing <code>bin/db-migrate up</code> into the command line.  This should populate your database with a variety of tables.  If you start MySQL again (hint: <code>mysql --user=root</code>), select the database you want to look at by typing <code>USE badgekitapi;</code>.  If you type <code>show tables;</code>, you'll see all the tables listed, including one called systems.
+</p>
+<br>
+<p>
+  The BadgeKit API requires there to be at least one system in your systems table, so we'll now need to add an entry to the systems table.  You can do this by typing: <code>INSERT INTO systems (slug, name, url) VALUES ('badgekit', 'Your system', 'http://localhost:3000');</code>  You can set the name to anything you want, but I'd suggest keeping the slug as 'badgekit' for now.
+</p>
+<br>
+<p>
+  Note: the url listed in this entry should match the app that will be making calls to the api.  Rails apps typically use localhost:3000, so if you have a rails app that will make calls to the api, you'll want to put localhost:3000 here.  When you deploy to production, you'll also have to change this url.
+</p>
+<br>
+<p>
+  Your API should be ready to go now!  Since the app is written in node.js, you can use <code>foreman start</code> to get it up and running.  Now if you visit localhost:8080 in your browser (remember, when we set up the environment variables in the api, we set the port to 8080!), you should see something like this:
+</p>
+<img src='/badgekit.png'>
+<br>
+<h4>Setting up the BadgeKit Web App</h4>
+<br>
+<p>
+  The Mozilla Self-Hosting Guide continues on to explain how to set up the BadgeKit Web App correctly, and I would suggest following the rest of that tutorial in order to create a test badge using their user-friendly interface.  When you set your environment variables, there are a few important things to know.
+</p>
+<br>
+<p>1. The OPENBADGER_URL should be set to the URL of your API, in our case localhost:8080</p>
+<p>2. The OPENBADGER_SECRET should match the MASTER_SECRET you set in the API </p>
+<p>3. The DATABASE_DATABASE should be the name for a new database you'll create in MySQL, this is different than the database you set in the API</p>
+<p>4. The ACCESS_LIST should include your email account, so that you can log in to Mozilla Persona and be verified as a user.  This will allow you to actually create the badges.</p>
+<br>
+<p>Once you've followed the other steps of the tutorial, you should be able to start your server with <code>foreman start</code>, and see something like this:</p>
+<br>
+<img src='/mozilla.png'>
+<br>
+<p>
+  Go ahead and make a badge using this resource so you'll have something to access and see in the next part of the tutorial.
+</p>
+<br>
+<h4>Connecting BadgeKit API to your own node.js app</h4>
+<br>
+<p>If you're me, you'd like to be able to create and issue badges from your own app rather than using the BadgeKit Web App.  To get that set up, here are the steps I followed:</p>
+<br>
+<p><strong>Step One:</strong></p>
+<br>
+<p>I started out by following <a href = "https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">heroku's tutorial</a> on creating a node.js app.  You can follow the same tutorial and simply skip the parts about deploying to heroku for now.  The basic steps are: </p>
+<br>
+<ol>
+  <li>Clone this repo from heroku by doing <code>git clone https://github.com/heroku/node-js-getting-started.git</code></li>
+  <li>cd into the directory called "node-js-getting-started"</li>
+  <li>Look at the <code>package.json</code> file that existed already in the cloned repo.  Under "dependencies", you should see something called "express."</li>
+  <li>Run <code>npm install</code> to prepare your system to run the app locally</li>
+  <li>To start your server, type <code>foreman start</code> into the command line</li>
+  <li>Your app should now be up and running at localhost:5000</li>
+</ol>
+<br>
+<p>
+  <strong>Step Two:</strong>
+</p>
+<br>
+<p>
+  Right, now, the index.js file that was created when you cloned will look something like this:
+</p>
+<br>
+<img src="/index-js.png"/>
+<br>
+<p>
+  The BadgeKit API requires a JWS token, aka a JSON Web Signature token, in order to authenticate requests.  We'll need to install a dependency in our app by entering <code>npm install jws</code> into the command line.  We will also want to install the logfmt dependency by typing <code>npm install logfmt</code> into the command line.
+</p>
+<br>
+<p>
+  The next step is to replace the contents of your index.js file with the following:
+</p>
+<br>
+<img src="/new-index-js.png"/>
+<br>
+<p>
+  Once you've done that, we need to set up the correct claimData for the API request, so that it is correctly authenticated.  This is where you specify the method, path, and secret, along with some other information that JWS needs.  It should look like the folloing, with the path matching the API endpoint you're trying to access (in this case, a list of all the badges), and the HTTP method.
+</p>
+<br>
+<img src="/claim-data.png"/>
+<br>
+<p>
+  The next variable to set up is the actual request data.  Make sure that the path and method match the claimData path and method.  The host can be localhost for when you're running this locally, and the port should match the port of your api, which will need to be up and running while this app is up and running.  The "headers" key is where we are authenticating our API request with the JWT token that will be derived from the claimData variable.
+</p>
+<br>
+<img src="/request.png" alt="request options" />
+<br>
+<p>
+  Finally, we need to set up a route for our app that will access the BadgeKit API.  Since we're using the Express web application framework, we can create a route using the following syntax:
+</p>
+<br>
+<code class = "multi-line-code">
+  <p>app.get("/", function(req, res) {</p>
+  <p class = "indent-1">&nbsp&nbspres.send("Hello World!");</p>
+  <p>};</p>
+</code>
+<br>
+<p>
+  Instead of just sending the response "Hello World!", however, we want to make our API call here, and return that data as a JSON object to be parsed.  Here is what the request will look like inside of the route.
+</p>
+<br>
+<img src="/api-call.png" alt="api call" />
+<br>
+<br>
+<p>
+  Inside of our route (aka when someone visits ourwebapp.com/), we are making another http request to our API using the path and method specified in the variable requestOptions.  On lines 37 and 38, we specify that when the data from the API is received, parse it into a JSON object, and then set that JSON object as the response from our web app.
+</p>
+<br>
+<p>
+In other words, let's say our app is called getbadges.com. When someone visits www.getbadges.com/, aka makes an HTTP request, we will make another HTTP request to the API, and then whatever we receive back from the API will be set as the body content of the resposne from getbadges.com.  If and when all goes according to plan, the user of getbadges.com will see the following JSON object, containing information about the badges:
+</p>
+<br>
+<img src="/response.png" alt="response" />
+<br>
+<p>
+  There you have it!  Once you have the API set up, you should be able to make all different kinds of requests, including POST request to create new badges and GET requests to access information about exisitng badges and users.  With that information, you can create a way for users of your own site to create and issue badges, simply by making API calls to the BadgeKit API, rather than going through the BadgeKit Web App.
+</p>
+<br>
+<p>
+  I look forward to using these tools as I further develop my idea for the capstone project.  I learned quite a lot about node.js through this process, and hope to further learn how to make API calls to the BadgeKit API directly from a Rails app, rather than a node.js app.  I know it should be possible, and am excited to puruse this tool further!
+</p>
+<br>
